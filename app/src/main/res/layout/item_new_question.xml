@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- QuestionPaper Title -->
+    <EditText
+        android:textSize="17sp"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/ic_question_edit_text"
+        android:hint="Question Title"
+        android:textColorHint="@color/transparentColorPrimary"
+        android:textColor="@color/colorPrimary"
+        android:padding="10dp"
+        android:background="@color/whiteSmoke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Answer options -->
+
+    <TextView
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/colorPrimary"
+        android:text="Fill in the options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- option 1 -->
+    <EditText
+        android:textSize="17sp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/ic_option_edit_text"
+        android:hint="Option 1"
+        android:textColorHint="@color/transparentColorPrimary"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:background="@color/whiteSmoke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- option 2 -->
+    <EditText
+        android:textSize="17sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/ic_option_edit_text"
+        android:hint="Option 2"
+        android:textColorHint="@color/transparentColorPrimary"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:background="@color/whiteSmoke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- option 3 -->
+    <EditText
+        android:textSize="17sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/ic_option_edit_text"
+        android:hint="Option 3"
+        android:textColorHint="@color/transparentColorPrimary"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:background="@color/whiteSmoke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- option 4 -->
+    <EditText
+        android:textSize="17sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/ic_option_edit_text"
+        android:hint="Option 4"
+        android:textColorHint="@color/transparentColorPrimary"
+        android:textColor="@color/colorPrimary"
+        android:padding="5dp"
+        android:background="@color/whiteSmoke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <!-- label -->
+    <TextView
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/colorPrimary"
+        android:text="Choose correct option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- correct option drop down -->
+    <Spinner
+        android:padding="5dp"
+        android:entries="@array/options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- label -->
+    <TextView
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/colorPrimary"
+        android:text="Choose Question Category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- correct option drop down -->
+    <Spinner
+        android:padding="5dp"
+        android:entries="@array/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

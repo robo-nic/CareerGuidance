@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:padding="10dp"
+    android:background="#fff"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- the main layout -->
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Label -->
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:textSize="15sp"
+            android:textColor="@color/transparentColorPrimary"
+            android:text="Add a new Question Paper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Add new question paper view -->
+        <android.support.v7.widget.CardView
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txvAddNewQuestionPaper"
+                android:textColor="@color/colorPrimary"
+                android:drawableStart="@drawable/ic_option_edit_text"
+                android:padding="10dp"
+                android:background="#fff"
+                android:layout_margin="1dp"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:text="Add new Question Paper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </android.support.v7.widget.CardView>
+
+        <!-- Label -->
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="15sp"
+            android:textColor="@color/transparentColorPrimary"
+            android:text="Explore an old Question Paper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- recycler view -->
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- frame layout for new question addition -->
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>
