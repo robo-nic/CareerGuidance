@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Career Guidance</string>
 
-    <!-- options in item_new_question.xml -->
+    <!-- options in fragment_add_question.xml.xml -->
     <string-array name="options">
         <item>OPTION 1</item>
         <item>OPTION 2</item>
@@ -10,7 +10,7 @@
     </string-array>
 
 
-    <!-- question category in item_new_question.xml -->
+    <!-- question category in fragment_add_question.xml.xml -->
     <string-array name="category">
         <item>ACCOUNTING</item>
         <item>ARCHITECTURE</item>

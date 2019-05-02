@@ -3,16 +3,20 @@ package paul.cipherresfeber.careerguidance.Teacher.Adapters;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import paul.cipherresfeber.careerguidance.R;
 import paul.cipherresfeber.careerguidance.Teacher.CustomClasses.QuestionPaper;
+import paul.cipherresfeber.careerguidance.Teacher.Fragments.AddQuestionFragment;
+import paul.cipherresfeber.careerguidance.Teacher.Fragments.AddQuestionPaperFragment;
 
 public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdapter.QuestionPaperViewHolder> {
 
@@ -42,6 +46,20 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
         questionPaperViewHolder.teacherName.setText(data.getTeacherName());
         questionPaperViewHolder.questionPaperName.setText(data.getQuestionPaperName());
 
+        questionPaperViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AddQuestionFragment fragment = new AddQuestionFragment();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right,
+                        R.anim.enter_from_right, R.anim.exit_to_right);
+                transaction.addToBackStack(null);
+                transaction.add(R.id.frameLayout, fragment, "AddQuestion").commit();
+
+            }
+        });
+
     }
 
     @Override
@@ -54,11 +72,13 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
 
         TextView questionPaperName;
         TextView teacherName;
+        LinearLayout parentLayout;
 
         public QuestionPaperViewHolder(@NonNull View itemView) {
             super(itemView);
             questionPaperName = itemView.findViewById(R.id.questionPaperName);
             teacherName = itemView.findViewById(R.id.teacherName);
+            parentLayout = itemView.findViewById(R.id.parentLayout);
         }
     }
 

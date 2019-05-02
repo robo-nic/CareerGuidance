@@ -1,5 +1,6 @@
 package paul.cipherresfeber.careerguidance.Teacher;
 
+import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 
 import paul.cipherresfeber.careerguidance.R;
 import paul.cipherresfeber.careerguidance.Teacher.Adapters.PageAdapter;
+import paul.cipherresfeber.careerguidance.Teacher.Fragments.AddQuestionPaperFragment;
 
 public class TeacherActivity extends AppCompatActivity {
 
@@ -53,5 +55,4 @@ public class TeacherActivity extends AppCompatActivity {
         viewPager.setCurrentItem(0);
 
     }
-
 }

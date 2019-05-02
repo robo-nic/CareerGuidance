@@ -37,7 +37,7 @@
                 android:layout_margin="1dp"
                 android:textSize="17sp"
                 android:gravity="center"
-                android:text="Add new Question Paper"
+                android:text="Add Question Paper"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
@@ -71,7 +71,6 @@
     <!-- frame layout for new question addition -->
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
