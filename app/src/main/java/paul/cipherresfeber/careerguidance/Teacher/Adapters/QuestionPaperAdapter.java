@@ -1,6 +1,7 @@
 package paul.cipherresfeber.careerguidance.Teacher.Adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -42,7 +43,7 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
     @Override
     public void onBindViewHolder(@NonNull QuestionPaperViewHolder questionPaperViewHolder, int i) {
 
-        QuestionPaper data = list.get(i);
+        final QuestionPaper data = list.get(i);
         questionPaperViewHolder.teacherName.setText(data.getTeacherName());
         questionPaperViewHolder.questionPaperName.setText(data.getQuestionPaperName());
 
@@ -50,7 +51,13 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
             @Override
             public void onClick(View v) {
 
+                // open an question paper for addition/deletion of questions
+
+                Bundle bundle = new Bundle();
+                bundle.putString("QuestionnaireKey", data.getQuestionsId());
+
                 AddQuestionFragment fragment = new AddQuestionFragment();
+                fragment.setArguments(bundle);
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right,
                         R.anim.enter_from_right, R.anim.exit_to_right);

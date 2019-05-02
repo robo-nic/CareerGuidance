@@ -3,6 +3,7 @@
 
     <!-- options in fragment_add_question.xml.xml -->
     <string-array name="options">
+        <item>CORRECT OPTION</item>
         <item>OPTION 1</item>
         <item>OPTION 2</item>
         <item>OPTION 3</item>
@@ -12,6 +13,7 @@
 
     <!-- question category in fragment_add_question.xml.xml -->
     <string-array name="category">
+        <item>QUESTION CATEGORY</item>
         <item>ACCOUNTING</item>
         <item>ARCHITECTURE</item>
         <item>BIOLOGY</item>

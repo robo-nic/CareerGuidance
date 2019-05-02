@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:clickable="true"
+    android:focusable="true"
     android:background="#fff"
     android:gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -7,6 +9,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/colorPrimary"
+        android:text="Question Paper Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <!-- QuestionPaper Title -->
     <EditText
@@ -25,7 +34,7 @@
 
     <TextView
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/colorPrimary"
         android:text="Fill in the options"
         android:layout_width="match_parent"
@@ -34,8 +43,6 @@
     <!-- option 1 -->
     <EditText
         android:textSize="17sp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
         android:drawablePadding="10dp"
         android:drawableStart="@drawable/ic_option_edit_text"
         android:hint="Option 1"
@@ -50,8 +57,6 @@
     <EditText
         android:textSize="17sp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
         android:drawablePadding="10dp"
         android:drawableStart="@drawable/ic_option_edit_text"
         android:hint="Option 2"
@@ -66,8 +71,6 @@
     <EditText
         android:textSize="17sp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
         android:drawablePadding="10dp"
         android:drawableStart="@drawable/ic_option_edit_text"
         android:hint="Option 3"
@@ -82,8 +85,6 @@
     <EditText
         android:textSize="17sp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
         android:drawablePadding="10dp"
         android:drawableStart="@drawable/ic_option_edit_text"
         android:hint="Option 4"
@@ -98,7 +99,7 @@
     <!-- label -->
     <TextView
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/colorPrimary"
         android:text="Choose correct option"
         android:layout_width="match_parent"
@@ -114,7 +115,7 @@
     <!-- label -->
     <TextView
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/colorPrimary"
         android:text="Choose Question Category"
         android:layout_width="match_parent"
