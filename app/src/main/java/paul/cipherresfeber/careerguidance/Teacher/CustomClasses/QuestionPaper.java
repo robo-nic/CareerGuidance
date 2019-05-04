@@ -1,22 +1,29 @@
 package paul.cipherresfeber.careerguidance.Teacher.CustomClasses;
 
+import paul.cipherresfeber.careerguidance.Constants.Extra;
+
 public class QuestionPaper {
 
     // all variables are declared public because of firebase
     public String questionPaperName;
     public String timePerQuestion;
     public String teacherName;
+    public String creationDate;
     public String questionsId;
+    public String isCompleted;
 
     public QuestionPaper(){
         // empty constructor for firebase
     }
 
-    public QuestionPaper(String questionPaperName, String timePerQuestion, String teacherName, String questionsId){
+    public QuestionPaper(String questionPaperName, String timePerQuestion, String teacherName,
+                         String creationDate, String questionsId){
         this.questionPaperName = questionPaperName;
         this.timePerQuestion = timePerQuestion;
         this.teacherName = teacherName;
+        this.creationDate = creationDate;
         this.questionsId = questionsId;
+        this.isCompleted = Extra.NO;
     }
 
     public String getQuestionPaperName() {
@@ -33,5 +40,13 @@ public class QuestionPaper {
 
     public String getTimePerQuestion() {
         return timePerQuestion;
+    }
+
+    public String getCreationDate(){
+        return creationDate;
+    }
+
+    public String getIsCompleted() {
+        return isCompleted;
     }
 }

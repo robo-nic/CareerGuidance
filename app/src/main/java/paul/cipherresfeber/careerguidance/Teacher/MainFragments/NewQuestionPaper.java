@@ -38,12 +38,10 @@ public class NewQuestionPaper extends Fragment {
         TextView textViewAddNewQuestionPaper = view.findViewById(R.id.txvAddNewQuestionPaper);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
 
-
-        // TODO: update the document ids
         DatabaseReference refQuestionPaper = FirebaseDatabase.getInstance()
                 .getReference()
                 .child("all_question_papers")
-                .child("uid_1234")
+                .child("uid_1234") // TODO: replace with teacher uid
                 .child("question_paper");
 
         final ArrayList<QuestionPaper> questionPaperList = new ArrayList<>();

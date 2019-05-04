@@ -9,11 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import paul.cipherresfeber.careerguidance.Constants.Extra;
 import paul.cipherresfeber.careerguidance.R;
 import paul.cipherresfeber.careerguidance.Teacher.CustomClasses.QuestionPaper;
 import paul.cipherresfeber.careerguidance.Teacher.Fragments.AddQuestionFragment;
@@ -51,18 +54,26 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
             @Override
             public void onClick(View v) {
 
-                // open an question paper for addition/deletion of questions
+                if(data.getIsCompleted().equals(Extra.NO)){
 
-                Bundle bundle = new Bundle();
-                bundle.putString("QuestionnaireKey", data.getQuestionsId());
+                    // allow editing of questions
 
-                AddQuestionFragment fragment = new AddQuestionFragment();
-                fragment.setArguments(bundle);
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right,
-                        R.anim.enter_from_right, R.anim.exit_to_right);
-                transaction.addToBackStack(null);
-                transaction.add(R.id.frameLayout, fragment, "AddQuestion").commit();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("QuestionnaireKey", data.getQuestionsId());
+
+                    AddQuestionFragment fragment = new AddQuestionFragment();
+                    fragment.setArguments(bundle);
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right,
+                            R.anim.enter_from_right, R.anim.exit_to_right);
+                    transaction.addToBackStack(null);
+                    transaction.add(R.id.frameLayout, fragment, "AddQuestion").commit();
+
+                } else{
+                    // open an fragment just for viewing of questions
+                    Toast.makeText(context, "Section to view questions will be ready in a day",
+                            Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

@@ -1,36 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:gravity="center"
-    android:clickable="true"
-    android:focusable="true"
-    android:background="#fff"
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:scrollbars="none"
+    android:fillViewport="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/name"
-        android:hint="name"
+    <LinearLayout
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="#fff"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/time"
-        android:hint="time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/colorPrimary"
+            android:text="Question Paper Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/teacherName"
-        android:hint="teacher name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:textColorHint="@color/transparentColorPrimary"
+            android:textColor="@color/colorPrimaryDark"
+            android:padding="10dp"
+            android:background="@drawable/bordered_background"
+            android:inputType="text"
+            android:maxLines="1"
+            android:id="@+id/etQuestionPaperName"
+            android:hint="Question Paper Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/button"
-        android:text="Create new Question Paper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/colorPrimary"
+            android:text="Time per Question Attempt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-</LinearLayout>
+        <EditText
+            android:textColorHint="@color/transparentColorPrimary"
+            android:textColor="@color/colorPrimaryDark"
+            android:padding="10dp"
+            android:background="@drawable/bordered_background"
+            android:inputType="number"
+            android:id="@+id/etTimePerQuestion"
+            android:hint="Time Per Question (in minutes)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/colorPrimary"
+            android:text="Question Paper Setter Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:textColorHint="@color/transparentColorPrimary"
+            android:textColor="@color/colorPrimaryDark"
+            android:padding="10dp"
+            android:background="@drawable/bordered_background"
+            android:inputType="text"
+            android:maxLines="1"
+            android:id="@+id/etTeacherName"
+            android:hint="Enter your Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bordered_background"
+            android:id="@+id/btnCreateNewQuestionPaper"
+            android:text="Create Question Paper"
+            android:layout_width="200dp"
+            android:layout_height="48dp" />
+
+    </LinearLayout>
+
+</ScrollView>
+

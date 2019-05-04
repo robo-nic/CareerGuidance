@@ -37,6 +37,7 @@
 
         <!-- QuestionPaper Title -->
         <EditText
+            android:id="@+id/etQuestionTitle"
             android:textSize="17sp"
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/ic_question_edit_text"
@@ -60,6 +61,7 @@
 
         <!-- option 1 -->
         <EditText
+            android:id="@+id/etOption1"
             android:textSize="17sp"
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/ic_option_edit_text"
@@ -73,6 +75,7 @@
 
         <!-- option 2 -->
         <EditText
+            android:id="@+id/etOption2"
             android:textSize="17sp"
             android:layout_marginTop="5dp"
             android:drawablePadding="10dp"
@@ -87,6 +90,7 @@
 
         <!-- option 3 -->
         <EditText
+            android:id="@+id/etOption3"
             android:textSize="17sp"
             android:layout_marginTop="5dp"
             android:drawablePadding="10dp"
@@ -101,6 +105,7 @@
 
         <!-- option 4 -->
         <EditText
+            android:id="@+id/etOption4"
             android:textSize="17sp"
             android:layout_marginTop="5dp"
             android:drawablePadding="10dp"
@@ -125,6 +130,7 @@
 
         <!-- correct option drop down -->
         <Spinner
+            android:id="@+id/spinnerCorrectOption"
             android:padding="5dp"
             android:entries="@array/options"
             android:layout_width="wrap_content"
@@ -141,12 +147,14 @@
 
         <!-- correct option drop down -->
         <Spinner
+            android:id="@+id/spinnerCategory"
             android:padding="5dp"
             android:entries="@array/category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <Button
+            android:id="@+id/btnAddQuestion"
             android:textColor="@color/colorPrimary"
             android:text="Add Question"
             android:background="@drawable/bordered_background"
