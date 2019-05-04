@@ -16,6 +16,15 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:textSize="17sp"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/colorPrimary"
+            android:text="Add Questions to your Question Paper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
             android:layout_marginBottom="5dp"
             android:textColor="@color/colorPrimary"
             android:text="All Questions"

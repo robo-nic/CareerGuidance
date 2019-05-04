@@ -55,8 +55,8 @@ public class AddQuestionPaperFragment extends Fragment {
                 String timePerQuestion = editTextTimePerQuestion.getText().toString().trim();
                 String teacherName = editTextTeacherName.getText().toString().trim();
 
-                if(questionPaperName.length() < 5 || questionPaperName.length() > 10){
-                    editTextQuestionPaperName.setError("5 - 10 chars only!");
+                if(questionPaperName.length() < 5 || questionPaperName.length() > 30){
+                    editTextQuestionPaperName.setError("5 - 30 chars only!");
                     editTextQuestionPaperName.requestFocus();
                     return;
                 }
@@ -98,6 +98,9 @@ public class AddQuestionPaperFragment extends Fragment {
                         pd.cancel();
                         Toast.makeText(getContext(),
                                 "Question paper created!", Toast.LENGTH_SHORT).show();
+
+                        // close the fragment
+                        getActivity().getSupportFragmentManager().popBackStackImmediate();
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
