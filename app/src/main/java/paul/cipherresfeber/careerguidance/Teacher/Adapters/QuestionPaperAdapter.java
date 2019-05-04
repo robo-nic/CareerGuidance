@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.github.mikephil.charting.utils.EntryXComparator;
 
 import java.util.ArrayList;
 
@@ -47,10 +50,16 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
     public void onBindViewHolder(@NonNull QuestionPaperViewHolder questionPaperViewHolder, int i) {
 
         final QuestionPaper data = list.get(i);
-        questionPaperViewHolder.teacherName.setText(data.getTeacherName());
-        questionPaperViewHolder.questionPaperName.setText(data.getQuestionPaperName());
+        questionPaperViewHolder.textViewTeacherName.setText(data.getTeacherName());
+        questionPaperViewHolder.textViewQuestionPaperName.setText(data.getQuestionPaperName());
+        questionPaperViewHolder.textViewCreationDate.setText(data.getCreationDate());
 
-        questionPaperViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
+        if(data.getIsCompleted().equals(Extra.NO))
+            questionPaperViewHolder.textViewQuestionPaperStatus.setText("Not Published");
+        else
+            questionPaperViewHolder.textViewQuestionPaperStatus.setText("Published");
+
+        questionPaperViewHolder.cardViewParentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -88,15 +97,19 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
     // view holder class
     public class QuestionPaperViewHolder extends RecyclerView.ViewHolder{
 
-        TextView questionPaperName;
-        TextView teacherName;
-        LinearLayout parentLayout;
+        TextView textViewQuestionPaperName;
+        TextView textViewTeacherName;
+        TextView textViewCreationDate;
+        TextView textViewQuestionPaperStatus;
+        CardView cardViewParentLayout;
 
         public QuestionPaperViewHolder(@NonNull View itemView) {
             super(itemView);
-            questionPaperName = itemView.findViewById(R.id.questionPaperName);
-            teacherName = itemView.findViewById(R.id.teacherName);
-            parentLayout = itemView.findViewById(R.id.parentLayout);
+            textViewQuestionPaperName = itemView.findViewById(R.id.txvQuestionPaperName);
+            textViewTeacherName = itemView.findViewById(R.id.txvTeacherName);
+            textViewCreationDate = itemView.findViewById(R.id.txvDate);
+            cardViewParentLayout = itemView.findViewById(R.id.parentLayout);
+            textViewQuestionPaperStatus = itemView.findViewById(R.id.txvQuestionPaperStatus);
         }
     }
 
