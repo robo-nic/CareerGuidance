@@ -1,6 +1,8 @@
 package paul.cipherresfeber.careerguidance.Teacher.Fragments;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.SyncStateContract;
@@ -16,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+import paul.cipherresfeber.careerguidance.Constants.Extra;
 import paul.cipherresfeber.careerguidance.Constants.Teacher;
 import paul.cipherresfeber.careerguidance.R;
 import paul.cipherresfeber.careerguidance.Teacher.Adapters.QuestionAdapter;
@@ -55,12 +59,17 @@ public class AddQuestionFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
+        final TextView textViewAvailableQuestions = view.findViewById(R.id.txvAvailableQuestions);
+        Button buttonPublishQuestionPaper = view.findViewById(R.id.btnPublishQuestionPaper);
+
         questionRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
                 list.add(dataSnapshot.getValue(Question.class));
                 adapter.notifyDataSetChanged();
+
+                textViewAvailableQuestions.setText("Available Questions: " + list.size());
 
             }
 
@@ -204,12 +213,72 @@ public class AddQuestionFragment extends Fragment {
                     }
                 });
 
-
             }
         });
 
 
+        // publish the question paper so that it becomes available to the students
+        buttonPublishQuestionPaper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                new AlertDialog.Builder(getContext())
+                        .setCancelable(false)
+                        .setTitle("Publish Question Paper?")
+                        .setMessage("Your question paper will be available across all student's devices. Are you sure you want to continue?")
+                        .setIcon(R.drawable.ic_publish)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                publishQuestionPaper(questionnaireKey);
+                            }})
+                        .setNegativeButton(android.R.string.no, null).show();
+
+            }
+        });
 
         return view;
     }
+
+    // method for updating question paper data to make it public
+    private void publishQuestionPaper(String key){
+
+        // initialize progressDialog
+        final ProgressDialog pd = new ProgressDialog(getContext());
+        pd.setTitle("Please Wait");
+        pd.setMessage("Publishing Question Paper");
+        pd.setCanceledOnTouchOutside(false);
+        pd.setCancelable(false);
+        pd.show();
+
+        DatabaseReference questionPaperRef = FirebaseDatabase.getInstance().getReference()
+                .child("all_question_papers")
+                .child("uid_1234") // TODO: update with teacher uid
+                .child("question_paper")
+                .child(key)
+                .child("isCompleted");
+
+        questionPaperRef.setValue(Extra.YES)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        pd.cancel();
+                        Toast.makeText(getContext(),
+                                "Published!", Toast.LENGTH_SHORT).show();
+
+                        // finally close the fragment
+                        getActivity().getSupportFragmentManager().popBackStackImmediate();
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        pd.cancel();
+                        Toast.makeText(getContext(),
+                                "Could not publish", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
+
 }

@@ -1,6 +1,7 @@
 package paul.cipherresfeber.careerguidance.Teacher.Adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ import paul.cipherresfeber.careerguidance.R;
 import paul.cipherresfeber.careerguidance.Teacher.CustomClasses.QuestionPaper;
 import paul.cipherresfeber.careerguidance.Teacher.Fragments.AddQuestionFragment;
 import paul.cipherresfeber.careerguidance.Teacher.Fragments.AddQuestionPaperFragment;
+import paul.cipherresfeber.careerguidance.Teacher.Fragments.ViewQuestionPaper;
 
 public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdapter.QuestionPaperViewHolder> {
 
@@ -54,10 +57,16 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
         questionPaperViewHolder.textViewQuestionPaperName.setText(data.getQuestionPaperName());
         questionPaperViewHolder.textViewCreationDate.setText(data.getCreationDate());
 
-        if(data.getIsCompleted().equals(Extra.NO))
+        if(data.getIsCompleted().equals(Extra.NO)){
             questionPaperViewHolder.textViewQuestionPaperStatus.setText("Not Published");
-        else
+            questionPaperViewHolder.relativeLayout
+                    .setBackgroundColor(context.getResources().getColor(R.color.white));
+        }
+        else {
             questionPaperViewHolder.textViewQuestionPaperStatus.setText("Published");
+            questionPaperViewHolder.relativeLayout
+                    .setBackgroundColor(context.getResources().getColor(R.color.lightGreen));
+        }
 
         questionPaperViewHolder.cardViewParentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,9 +88,21 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
                     transaction.add(R.id.frameLayout, fragment, "AddQuestion").commit();
 
                 } else{
-                    // open an fragment just for viewing of questions
-                    Toast.makeText(context, "Section to view questions will be ready in a day",
-                            Toast.LENGTH_SHORT).show();
+                    // open an fragment for viewing the questions
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("QuestionnaireKey", data.getQuestionsId());
+
+                    ViewQuestionPaper fragment = new ViewQuestionPaper();
+                    fragment.setArguments(bundle);
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right,
+                            R.anim.enter_from_right, R.anim.exit_to_right);
+                    transaction
+                            .addToBackStack(null)
+                            .add(R.id.frameLayout, fragment, "ViewQuestionPaper")
+                            .commit();
+
                 }
 
             }
@@ -102,6 +123,7 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
         TextView textViewCreationDate;
         TextView textViewQuestionPaperStatus;
         CardView cardViewParentLayout;
+        RelativeLayout relativeLayout;
 
         public QuestionPaperViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -110,6 +132,7 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
             textViewCreationDate = itemView.findViewById(R.id.txvDate);
             cardViewParentLayout = itemView.findViewById(R.id.parentLayout);
             textViewQuestionPaperStatus = itemView.findViewById(R.id.txvQuestionPaperStatus);
+            relativeLayout = itemView.findViewById(R.id.relativeLayout);
         }
     }
 

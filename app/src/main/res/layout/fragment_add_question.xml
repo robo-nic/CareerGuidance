@@ -16,18 +16,12 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/txvAvailableQuestions"
             android:textSize="17sp"
             android:gravity="center"
-            android:layout_marginBottom="10dp"
-            android:textColor="@color/colorPrimary"
-            android:text="Add Questions to your Question Paper"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
             android:layout_marginBottom="5dp"
             android:textColor="@color/colorPrimary"
-            android:text="All Questions"
+            android:text="Available Questions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -37,10 +31,19 @@
             android:layout_height="400dp"/>
 
         <TextView
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:textSize="17sp"
+            android:gravity="center"
             android:layout_marginBottom="5dp"
             android:textColor="@color/colorPrimary"
-            android:text="Question Paper Name"
+            android:text="Add Questions to your Question Paper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/colorPrimary"
+            android:text="Question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -50,7 +53,7 @@
             android:textSize="17sp"
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/ic_question_edit_text"
-            android:hint="Question Title"
+            android:hint="Write you question here"
             android:textColorHint="@color/transparentColorPrimary"
             android:textColor="@color/colorPrimary"
             android:padding="10dp"
@@ -170,6 +173,20 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:layout_width="140dp"
+            android:layout_height="48dp" />
+
+        <Button
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/ic_publish"
+            android:id="@+id/btnPublishQuestionPaper"
+            android:textColor="@color/colorPrimary"
+            android:text="Publish Question Paper"
+            android:background="@drawable/bordered_background"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:layout_width="wrap_content"
             android:layout_height="48dp" />
 
     </LinearLayout>
