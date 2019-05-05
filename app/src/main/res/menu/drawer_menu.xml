@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/navDashboard"
+            android:icon="@drawable/ic_nav_dashboard"
+            android:title="Dashboard"/>
+
+        <item android:id="@+id/navAttemptTest"
+            android:icon="@drawable/ic_nav_attempt_test"
+            android:title="Attempt Test"/>
+
+        <item android:id="@+id/navPastResult"
+            android:icon="@drawable/ic_nav_past_result"
+            android:title="Past Results"/>
+
+        <item android:id="@+id/navProfile"
+            android:icon="@drawable/ic_nav_profile"
+            android:title="Profile"/>
+
+    </group>
+
+    <item android:title="Communicate">
+
+        <menu>
+            <item android:id="@+id/navLogout"
+                android:icon="@drawable/ic_nav_log_out"
+                android:title="Logout"/>
+
+            <item android:id="@+id/navEmail"
+                android:icon="@drawable/ic_nav_report_bug"
+                android:title="Email Developer / Report Bug"/>
+        </menu>
+
+    </item>
+
+</menu>

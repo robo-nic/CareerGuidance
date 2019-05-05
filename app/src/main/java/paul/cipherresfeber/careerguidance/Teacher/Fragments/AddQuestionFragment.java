@@ -4,14 +4,11 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.provider.SyncStateContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +20,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.api.LogDescriptor;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,7 +32,7 @@ import paul.cipherresfeber.careerguidance.Constants.Extra;
 import paul.cipherresfeber.careerguidance.Constants.Teacher;
 import paul.cipherresfeber.careerguidance.R;
 import paul.cipherresfeber.careerguidance.Teacher.Adapters.QuestionAdapter;
-import paul.cipherresfeber.careerguidance.Teacher.CustomClasses.Question;
+import paul.cipherresfeber.careerguidance.CustomClasses.Question;
 
 public class AddQuestionFragment extends Fragment {
 

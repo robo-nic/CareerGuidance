@@ -10,12 +10,12 @@ import android.view.ViewGroup;
 
 import paul.cipherresfeber.careerguidance.R;
 
-public class Dashboard extends Fragment {
+public class Profile extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_student_dashboard, container, false);
+        View view = inflater.inflate(R.layout.fragment_student_profile, container, false);
 
         return view;
     }

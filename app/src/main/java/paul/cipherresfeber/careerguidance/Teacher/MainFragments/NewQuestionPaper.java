@@ -1,6 +1,5 @@
 package paul.cipherresfeber.careerguidance.Teacher.MainFragments;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,9 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -23,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import paul.cipherresfeber.careerguidance.R;
 import paul.cipherresfeber.careerguidance.Teacher.Adapters.QuestionPaperAdapter;
-import paul.cipherresfeber.careerguidance.Teacher.CustomClasses.QuestionPaper;
+import paul.cipherresfeber.careerguidance.CustomClasses.QuestionPaper;
 import paul.cipherresfeber.careerguidance.Teacher.Fragments.AddQuestionPaperFragment;
 
 public class NewQuestionPaper extends Fragment {

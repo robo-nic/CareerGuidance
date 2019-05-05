@@ -1,7 +1,6 @@
 package paul.cipherresfeber.careerguidance.Teacher.Adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
@@ -11,23 +10,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.github.mikephil.charting.utils.EntryXComparator;
 
 import java.util.ArrayList;
 
 import paul.cipherresfeber.careerguidance.Constants.Extra;
 import paul.cipherresfeber.careerguidance.Constants.Teacher;
 import paul.cipherresfeber.careerguidance.R;
-import paul.cipherresfeber.careerguidance.Teacher.CustomClasses.QuestionPaper;
+import paul.cipherresfeber.careerguidance.CustomClasses.QuestionPaper;
 import paul.cipherresfeber.careerguidance.Teacher.Fragments.AddQuestionFragment;
-import paul.cipherresfeber.careerguidance.Teacher.Fragments.AddQuestionPaperFragment;
 import paul.cipherresfeber.careerguidance.Teacher.Fragments.ViewQuestionPaper;
 
 public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdapter.QuestionPaperViewHolder> {

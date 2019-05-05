@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ import java.util.ArrayList;
 import paul.cipherresfeber.careerguidance.Constants.Teacher;
 import paul.cipherresfeber.careerguidance.R;
 import paul.cipherresfeber.careerguidance.Teacher.Adapters.QuestionAdapter;
-import paul.cipherresfeber.careerguidance.Teacher.CustomClasses.Question;
+import paul.cipherresfeber.careerguidance.CustomClasses.Question;
 
 public class ViewQuestionPaper extends Fragment {
     @Nullable

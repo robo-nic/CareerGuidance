@@ -1,10 +1,7 @@
 package paul.cipherresfeber.careerguidance.Teacher.Fragments;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -23,7 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import paul.cipherresfeber.careerguidance.R;
-import paul.cipherresfeber.careerguidance.Teacher.CustomClasses.QuestionPaper;
+import paul.cipherresfeber.careerguidance.CustomClasses.QuestionPaper;
 
 public class AddQuestionPaperFragment extends Fragment {
 

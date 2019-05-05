@@ -13,8 +13,7 @@ import java.util.ArrayList;
 
 import paul.cipherresfeber.careerguidance.Constants.Extra;
 import paul.cipherresfeber.careerguidance.R;
-import paul.cipherresfeber.careerguidance.Teacher.CustomClasses.Question;
-import paul.cipherresfeber.careerguidance.Teacher.CustomClasses.QuestionPaper;
+import paul.cipherresfeber.careerguidance.CustomClasses.Question;
 
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.QuestionAdapterViewHolder> {
 

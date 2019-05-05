@@ -1,4 +1,4 @@
-package paul.cipherresfeber.careerguidance.Teacher.CustomClasses;
+package paul.cipherresfeber.careerguidance.CustomClasses;
 
 public class Question {
 

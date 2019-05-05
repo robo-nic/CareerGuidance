@@ -13,8 +13,6 @@ import paul.cipherresfeber.careerguidance.R;
 
 public class Dashboard extends Fragment {
 
-    // TODO: question category graph
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
