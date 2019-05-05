@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ import com.github.mikephil.charting.utils.EntryXComparator;
 import java.util.ArrayList;
 
 import paul.cipherresfeber.careerguidance.Constants.Extra;
+import paul.cipherresfeber.careerguidance.Constants.Teacher;
 import paul.cipherresfeber.careerguidance.R;
 import paul.cipherresfeber.careerguidance.Teacher.CustomClasses.QuestionPaper;
 import paul.cipherresfeber.careerguidance.Teacher.Fragments.AddQuestionFragment;
@@ -30,9 +32,9 @@ import paul.cipherresfeber.careerguidance.Teacher.Fragments.ViewQuestionPaper;
 
 public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdapter.QuestionPaperViewHolder> {
 
-    Context context;
-    ArrayList<QuestionPaper> list;
-    FragmentManager fragmentManager;
+    private Context context;
+    private ArrayList<QuestionPaper> list;
+    private FragmentManager fragmentManager;
 
     // constructor for the PasswordAdapter class
     public QuestionPaperAdapter(Context context, ArrayList<QuestionPaper> list, FragmentManager fragmentManager){
@@ -59,13 +61,13 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
 
         if(data.getIsCompleted().equals(Extra.NO)){
             questionPaperViewHolder.textViewQuestionPaperStatus.setText("Not Published");
-            questionPaperViewHolder.relativeLayout
-                    .setBackgroundColor(context.getResources().getColor(R.color.white));
+            questionPaperViewHolder.imageViewStatus
+                    .setImageResource(R.drawable.ic_new_question_paper_primary_color);
         }
         else {
             questionPaperViewHolder.textViewQuestionPaperStatus.setText("Published");
-            questionPaperViewHolder.relativeLayout
-                    .setBackgroundColor(context.getResources().getColor(R.color.lightGreen));
+            questionPaperViewHolder.imageViewStatus
+                    .setImageResource(R.drawable.ic_new_question_paper_primary_color_green);
         }
 
         questionPaperViewHolder.cardViewParentLayout.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +79,7 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
                     // allow editing of questions
 
                     Bundle bundle = new Bundle();
-                    bundle.putString("QuestionnaireKey", data.getQuestionsId());
+                    bundle.putString(Teacher.QUESTIONNAIRE_KEY, data.getQuestionsId());
 
                     AddQuestionFragment fragment = new AddQuestionFragment();
                     fragment.setArguments(bundle);
@@ -88,10 +90,15 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
                     transaction.add(R.id.frameLayout, fragment, "AddQuestion").commit();
 
                 } else{
+
                     // open an fragment for viewing the questions
 
                     Bundle bundle = new Bundle();
-                    bundle.putString("QuestionnaireKey", data.getQuestionsId());
+                    bundle.putString(Teacher.QUESTIONNAIRE_KEY, data.getQuestionsId());
+                    bundle.putString(Teacher.QUESTION_PAPER_NAME, data.getQuestionPaperName());
+                    bundle.putString(Teacher.TEACHER_NAME, data.getTeacherName());
+                    bundle.putString(Teacher.TIME_PER_QUESTION, data.getTimePerQuestion());
+                    bundle.putString(Teacher.DATE, data.getCreationDate());
 
                     ViewQuestionPaper fragment = new ViewQuestionPaper();
                     fragment.setArguments(bundle);
@@ -123,7 +130,7 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
         TextView textViewCreationDate;
         TextView textViewQuestionPaperStatus;
         CardView cardViewParentLayout;
-        RelativeLayout relativeLayout;
+        ImageView imageViewStatus;
 
         public QuestionPaperViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -132,7 +139,7 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
             textViewCreationDate = itemView.findViewById(R.id.txvDate);
             cardViewParentLayout = itemView.findViewById(R.id.parentLayout);
             textViewQuestionPaperStatus = itemView.findViewById(R.id.txvQuestionPaperStatus);
-            relativeLayout = itemView.findViewById(R.id.relativeLayout);
+            imageViewStatus = itemView.findViewById(R.id.imvStatus);
         }
     }
 

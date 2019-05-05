@@ -4,7 +4,57 @@
     android:clickable="true"
     android:background="#fff"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:id="@+id/txvQuestionPaperName"
+            android:text="Question Paper Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:textColor="@color/transparentColorPrimary"
+            android:textSize="15sp"
+            android:id="@+id/txvTeacherName"
+            android:text="Teacher's Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textColor="@color/transparentColorPrimary"
+            android:textSize="15sp"
+            android:id="@+id/txvCreationDate"
+            android:text="Question Paper Creation Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textColor="@color/transparentColorPrimary"
+            android:textSize="15sp"
+            android:id="@+id/txvTotalTime"
+            android:text="Total Time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="10dp"
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

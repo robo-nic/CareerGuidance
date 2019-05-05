@@ -46,7 +46,7 @@ public class AddQuestionFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_add_question, container, false);
 
         // fetch already added questions from the questionnaireKey and show to the Recycler View
-        final String questionnaireKey = getArguments().getString("QuestionnaireKey");
+        final String questionnaireKey = getArguments().getString(Teacher.QUESTIONNAIRE_KEY);
 
         final DatabaseReference questionRef = FirebaseDatabase.getInstance().getReference()
                 .child("questions")
@@ -222,10 +222,14 @@ public class AddQuestionFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                String message = "Your question paper will be available across all student's devices. " +
+                        "And you won't be able to edit any questions either. " +
+                        "Are you sure you want to continue?";
+
                 new AlertDialog.Builder(getContext())
                         .setCancelable(false)
                         .setTitle("Publish Question Paper?")
-                        .setMessage("Your question paper will be available across all student's devices. Are you sure you want to continue?")
+                        .setMessage(message)
                         .setIcon(R.drawable.ic_publish)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
