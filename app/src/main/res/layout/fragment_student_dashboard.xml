@@ -35,7 +35,7 @@
                 android:textSize="27sp"
                 android:textStyle="bold|italic"
                 android:textColor="@color/colorPrimary"
-                android:text="Teacher"
+                android:text="---"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -61,8 +61,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChart"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="300dp"/>

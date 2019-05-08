@@ -18,22 +18,18 @@
         <item>ARCHITECTURE</item>
         <item>BIOLOGY</item>
         <item>BUSINESS</item>
-        <item>CHEMISTRY</item>
         <item>CIVIL</item>
         <item>COMPUTER SCIENCE</item>
         <item>CRIMINOLOGY</item>
-        <item>ECONOMICS</item>
         <item>ELECTRICAL</item>
         <item>FASHION</item>
         <item>GEOGRAPHY</item>
         <item>GENERAL KNOWLEDGE</item>
         <item>GRAPHIC DESIGN</item>
-        <item>ILLUSTRATION</item>
         <item>LAW</item>
         <item>MATHEMATICS</item>
         <item>MUSIC</item>
         <item>PHYSICS</item>
-        <item>SOFTWARE</item>
     </string-array>
 
     <!-- for navigation drawer -->
