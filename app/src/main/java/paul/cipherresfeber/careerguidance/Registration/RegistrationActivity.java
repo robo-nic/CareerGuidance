@@ -5,6 +5,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import paul.cipherresfeber.careerguidance.R;
 import paul.cipherresfeber.careerguidance.Registration.Adapters.PageAdapter;
 
@@ -23,8 +25,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
         // label to be used in tab layout
         String[] labels = new String[]{
-                "Login",
-                "Signup"
+                "LOGIN",
+                "SIGN UP"
         };
 
         // setting the icons to the tab layouts

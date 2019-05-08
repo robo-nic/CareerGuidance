@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Career Guidance</string>
 
+    <!-- sign up category -->
+    <string-array name="who_are_you">
+        <item>STUDENT</item>
+        <item>TEACHER</item>
+    </string-array>
+
     <!-- options in fragment_add_question.xml.xml -->
     <string-array name="options">
         <item>CORRECT OPTION</item>
@@ -9,7 +15,6 @@
         <item>OPTION 3</item>
         <item>OPTION 4</item>
     </string-array>
-
 
     <!-- question category in fragment_add_question.xml.xml -->
     <string-array name="category">
