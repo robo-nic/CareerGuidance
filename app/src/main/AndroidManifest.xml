@@ -13,13 +13,6 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".Student.StudentActivity"
             android:screenOrientation="portrait">
-
-            <!-- for development purpose -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
         <activity android:name=".Teacher.TeacherActivity"
             android:screenOrientation="portrait">
@@ -27,6 +20,10 @@
         <activity android:name=".Registration.RegistrationActivity"
             android:screenOrientation="portrait">
             <!-- add intent filter here -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
