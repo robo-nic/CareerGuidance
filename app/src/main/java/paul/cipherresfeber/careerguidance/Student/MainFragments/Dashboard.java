@@ -25,7 +25,7 @@ public class Dashboard extends Fragment {
         RadarChart radarChart = view.findViewById(R.id.radarChart);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
 
-        // todo: fetch stats of user from datebase -- display the graph and table
+        // todo: fetch stats of user from database -- display the graph and table
         // todo: show preferred career choice
 
         return view;

@@ -36,6 +36,8 @@ import paul.cipherresfeber.careerguidance.CustomClasses.Question;
 
 public class AddQuestionFragment extends Fragment {
 
+    ArrayList<Question> list;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,7 +50,7 @@ public class AddQuestionFragment extends Fragment {
                 .child("questions")
                 .child(questionnaireKey);
 
-        final ArrayList<Question> list = new ArrayList<>();
+        list = new ArrayList<>();
         final QuestionAdapter adapter = new QuestionAdapter(getContext(),list,getFragmentManager());
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
@@ -254,10 +256,10 @@ public class AddQuestionFragment extends Fragment {
                 .child("all_question_papers")
                 .child("uid_1234") // TODO: update with teacher uid
                 .child("question_paper")
-                .child(key)
-                .child("isCompleted");
+                .child(key);
 
-        questionPaperRef.setValue(Extra.YES)
+        questionPaperRef.child("totalNumOfQuestions").setValue(String.valueOf(list.size()));
+        questionPaperRef.child("isCompleted").setValue(Extra.YES)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

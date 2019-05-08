@@ -25,6 +25,7 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
         <FrameLayout
+            android:background="#fff"
             android:layout_weight="1"
             android:id="@+id/fragmentContainer"
             android:layout_width="match_parent"

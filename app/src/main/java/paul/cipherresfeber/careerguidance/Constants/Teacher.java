@@ -10,5 +10,6 @@ public class Teacher {
     public static final String QUESTION_PAPER_NAME = "question_paper_name";
     public static final String TEACHER_NAME = "teacher_name";
     public static final String TIME_PER_QUESTION = "time_per_question";
+    public static final String TOTAL_NUMBER_OF_QUESTIONS = "total_number_of_questions";
 
 }

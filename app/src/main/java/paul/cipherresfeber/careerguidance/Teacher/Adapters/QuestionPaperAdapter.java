@@ -38,7 +38,7 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
     @NonNull
     @Override
     public QuestionPaperViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_question_paper, viewGroup,
+        View view = LayoutInflater.from(context).inflate(R.layout.item_teacher_question_paper, viewGroup,
                 false);
         return new QuestionPaperViewHolder(view);
     }

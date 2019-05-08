@@ -11,6 +11,7 @@ public class QuestionPaper {
     public String creationDate;
     public String questionsId;
     public String isCompleted;
+    public String totalNumberOfQuestions;
 
     public QuestionPaper(){
         // empty constructor for firebase
@@ -49,4 +50,9 @@ public class QuestionPaper {
     public String getIsCompleted() {
         return isCompleted;
     }
+
+    public String getTotalNumberOfQuestions(){
+        return totalNumberOfQuestions;
+    }
+
 }
