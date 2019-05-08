@@ -13,10 +13,6 @@
             android:icon="@drawable/ic_nav_attempt_test"
             android:title="Attempt Test"/>
 
-        <item android:id="@+id/navPastResult"
-            android:icon="@drawable/ic_nav_past_result"
-            android:title="Past Results"/>
-
         <item android:id="@+id/navProfile"
             android:icon="@drawable/ic_nav_profile"
             android:title="Profile"/>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:gravity="center_vertical"
+    android:background="#fff"
+    android:paddingBottom="25dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginBottom="30dp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:id="@+id/question"
+        android:textSize="30dp"
+        android:text="Is this really a question?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/option1"
+        android:textSize="20sp"
+        android:text="1. An option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/option2"
+        android:textSize="20sp"
+        android:text="2. Another option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/option3"
+        android:textSize="20sp"
+        android:text="3. Yet Another Option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/option4"
+        android:textSize="20sp"
+        android:text="4. OMG, another options again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

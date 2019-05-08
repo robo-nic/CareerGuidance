@@ -17,7 +17,6 @@ import android.widget.TextView;
 import paul.cipherresfeber.careerguidance.R;
 import paul.cipherresfeber.careerguidance.Student.MainFragments.AttemptTest;
 import paul.cipherresfeber.careerguidance.Student.MainFragments.Dashboard;
-import paul.cipherresfeber.careerguidance.Student.MainFragments.PastResult;
 import paul.cipherresfeber.careerguidance.Student.MainFragments.Profile;
 
 public class StudentActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -84,12 +83,6 @@ public class StudentActivity extends AppCompatActivity implements NavigationView
                         .setCustomAnimations(R.anim.fade_in_frag, R.anim.fade_out_frag)
                         .replace(R.id.fragmentContainer, new AttemptTest()).commit();
                 getSupportActionBar().setTitle("Attempt Test");
-                break;
-            case R.id.navPastResult:
-                getSupportFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.fade_in_frag, R.anim.fade_out_frag)
-                        .replace(R.id.fragmentContainer, new PastResult()).commit();
-                getSupportActionBar().setTitle("Past Result");
                 break;
             case R.id.navProfile:
                 getSupportFragmentManager().beginTransaction()

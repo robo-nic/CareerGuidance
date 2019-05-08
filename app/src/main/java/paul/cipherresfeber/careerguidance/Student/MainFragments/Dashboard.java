@@ -11,7 +11,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.RadarChart;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
+import paul.cipherresfeber.careerguidance.CustomClasses.StudentAnswer;
 import paul.cipherresfeber.careerguidance.R;
 
 public class Dashboard extends Fragment {
