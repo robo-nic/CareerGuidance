@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -36,6 +37,9 @@ public class AddQuestionPaperFragment extends Fragment {
         final EditText editTextQuestionPaperName = view.findViewById(R.id.etQuestionPaperName);
         final EditText editTextTimePerQuestion = view.findViewById(R.id.etTimePerQuestion);
         final EditText editTextTeacherName = view.findViewById(R.id.etTeacherName);
+
+        editTextTeacherName.setText(FirebaseAuth.getInstance().getCurrentUser()
+                .getDisplayName().split("@")[0]);
 
         view.findViewById(R.id.btnCreateNewQuestionPaper).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,18 +78,19 @@ public class AddQuestionPaperFragment extends Fragment {
 
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference()
                         .child("all_question_papers")
-                        .child("uid_1234") // TODO: teachers uid
-                        .child("question_paper")
                         .push();
 
                 String questionPaperKey = reference.getKey();
                 String questionCreationDate = new SimpleDateFormat("dd MM, YYYY").format(new Date());
+
+                String teacherUId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
                 reference.setValue(
                   new QuestionPaper(
                           questionPaperName,
                           timePerQuestion,
                           teacherName,
+                          teacherUId,
                           questionCreationDate,
                           questionPaperKey
                   )

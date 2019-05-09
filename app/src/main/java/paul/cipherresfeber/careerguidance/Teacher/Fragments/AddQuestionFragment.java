@@ -3,6 +3,7 @@ package paul.cipherresfeber.careerguidance.Teacher.Fragments;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -33,6 +34,7 @@ import paul.cipherresfeber.careerguidance.Constants.Teacher;
 import paul.cipherresfeber.careerguidance.R;
 import paul.cipherresfeber.careerguidance.Teacher.Adapters.QuestionAdapter;
 import paul.cipherresfeber.careerguidance.CustomClasses.Question;
+import paul.cipherresfeber.careerguidance.Teacher.TeacherActivity;
 
 public class AddQuestionFragment extends Fragment {
 
@@ -254,8 +256,6 @@ public class AddQuestionFragment extends Fragment {
 
         DatabaseReference questionPaperRef = FirebaseDatabase.getInstance().getReference()
                 .child("all_question_papers")
-                .child("uid_1234") // TODO: update with teacher uid
-                .child("question_paper")
                 .child(key);
 
         questionPaperRef.child("totalNumOfQuestions").setValue(String.valueOf(list.size()));
@@ -268,7 +268,8 @@ public class AddQuestionFragment extends Fragment {
                                 "Published!", Toast.LENGTH_SHORT).show();
 
                         // finally close the fragment
-                        getActivity().getSupportFragmentManager().popBackStackImmediate();
+                        startActivity(new Intent(getContext(), TeacherActivity.class));
+                        getActivity().finish();
 
                     }
                 })

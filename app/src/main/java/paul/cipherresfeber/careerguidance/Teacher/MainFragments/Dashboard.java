@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import paul.cipherresfeber.careerguidance.R;
 
 public class Dashboard extends Fragment {
@@ -20,9 +23,11 @@ public class Dashboard extends Fragment {
 
         TextView textViewTeacherName = view.findViewById(R.id.txvTeacherName);
         TextView textViewEmail = view.findViewById(R.id.txvEmail);
-        TextView textViewSubject = view.findViewById(R.id.txvSubject);
 
-        // TODO: if any improvement in UI or UX ---- to be done later
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        textViewTeacherName.setText(user.getDisplayName().split("@")[0]);
+        textViewEmail.setText(user.getEmail());
 
         return view;
     }

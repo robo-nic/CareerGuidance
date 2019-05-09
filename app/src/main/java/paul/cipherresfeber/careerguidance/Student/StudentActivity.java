@@ -14,7 +14,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import paul.cipherresfeber.careerguidance.R;
+import paul.cipherresfeber.careerguidance.Registration.RegistrationActivity;
 import paul.cipherresfeber.careerguidance.Student.MainFragments.AttemptTest;
 import paul.cipherresfeber.careerguidance.Student.MainFragments.Dashboard;
 import paul.cipherresfeber.careerguidance.Student.MainFragments.Profile;
@@ -54,7 +58,10 @@ public class StudentActivity extends AppCompatActivity implements NavigationView
         TextView textViewUserName = headerView.findViewById(R.id.txvUserName);
         TextView textViewUserEmail = headerView.findViewById(R.id.txvUserEmail);
 
-        // todo: set value to the views after authentication
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        textViewUserEmail.setText(user.getEmail());
+        textViewUserName.setText(user.getDisplayName().split("@")[0]);
+        textViewUserProfilePicture.setText(String.valueOf(user.getDisplayName().split("@")[0].charAt(0)));
 
     }
 
@@ -91,7 +98,9 @@ public class StudentActivity extends AppCompatActivity implements NavigationView
                 getSupportActionBar().setTitle("Profile");
                 break;
             case R.id.navLogout:
-                // todo: logout
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(StudentActivity.this, RegistrationActivity.class));
+                StudentActivity.this.finish();
                 break;
             case R.id.navEmail:
                 // call an intent to gmail app

@@ -12,6 +12,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,6 +25,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -44,6 +47,7 @@ import paul.cipherresfeber.careerguidance.Student.Adapters.QuestionAdapter;
 public class AttemptQuestionPaper extends Fragment {
 
     private int currentQuestion;
+    private String totalNumberOfQuestions;
 
     @SuppressLint("ClickableViewAccessibility")
     @Nullable
@@ -68,8 +72,7 @@ public class AttemptQuestionPaper extends Fragment {
         String teacherName = bundle.getString(Teacher.TEACHER_NAME);
         String timePerQuestion = bundle.getString(Teacher.TIME_PER_QUESTION);
         String date = bundle.getString(Teacher.DATE);
-        final String totalNumberOfQuestions = bundle.getString(Teacher.TOTAL_NUMBER_OF_QUESTIONS);
-
+        totalNumberOfQuestions = bundle.getString(Teacher.TOTAL_NUMBER_OF_QUESTIONS);
 
         // list for saving answer -- creating n vacant spaces
         final ArrayList<StudentAnswer> answers = new ArrayList<>();
@@ -208,7 +211,7 @@ public class AttemptQuestionPaper extends Fragment {
                                     // upload the entire answer sheet to the database
                                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference()
                                             .child("answer_sheet")
-                                            .child("uid_student_1234") // todo user UID
+                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                             .child("first_test");
 
                                     ref.setValue(answers)

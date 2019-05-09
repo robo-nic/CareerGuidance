@@ -25,8 +25,8 @@ public class TeacherActivity extends AppCompatActivity {
 
         // array of icons to be used in tab layout
         int[] icons = new int[]{
-                R.drawable.ic_dashboard,
-                R.drawable.ic_new_question_paper
+                R.drawable.ic_new_question_paper,
+                R.drawable.ic_dashboard
         };
 
         // setting the icons to the tab layouts

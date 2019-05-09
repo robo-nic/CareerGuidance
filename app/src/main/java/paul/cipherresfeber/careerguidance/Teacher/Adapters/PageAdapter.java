@@ -22,9 +22,9 @@ public class PageAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int i) {
         switch (i){
             case 0:
-                return new Dashboard();
-            case 1:
                 return new NewQuestionPaper();
+            case 1:
+                return new Dashboard();
             default:
                 return null;
         }

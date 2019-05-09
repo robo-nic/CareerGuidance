@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import paul.cipherresfeber.careerguidance.R;
 
 public class Profile extends Fragment {
@@ -18,10 +21,14 @@ public class Profile extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_student_profile, container, false);
 
-        TextView textViewTeacherName = view.findViewById(R.id.txvTeacherName);
+        TextView textViewStudentName = view.findViewById(R.id.txvStudentName);
         TextView textViewEmail = view.findViewById(R.id.txvEmail);
 
-        // TODO: if any improvement in UI or UX ---- to be done later
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        textViewStudentName.setText(user.getDisplayName().split("@")[0]);
+        textViewEmail.setText(user.getEmail());
+
 
         return view;
     }

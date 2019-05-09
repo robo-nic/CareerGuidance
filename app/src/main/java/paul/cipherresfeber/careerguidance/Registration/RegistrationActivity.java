@@ -1,14 +1,19 @@
 package paul.cipherresfeber.careerguidance.Registration;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
+import paul.cipherresfeber.careerguidance.Constants.Extra;
 import paul.cipherresfeber.careerguidance.R;
 import paul.cipherresfeber.careerguidance.Registration.Adapters.PageAdapter;
+import paul.cipherresfeber.careerguidance.Student.StudentActivity;
+import paul.cipherresfeber.careerguidance.Teacher.TeacherActivity;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -18,6 +23,20 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+
+        // if user is already logged in, try opening the profile
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if(firebaseUser != null){
+            String name = firebaseUser.getDisplayName();
+            if(name.split("@")[1].equals(Extra.USER_TYPE_TEACHER)){
+                startActivity(new Intent(RegistrationActivity.this, TeacherActivity.class));
+                RegistrationActivity.this.finish();
+            } else{
+                startActivity(new Intent(RegistrationActivity.this, StudentActivity.class));
+                RegistrationActivity.this.finish();
+            }
+
+        }
 
         // referencing to the views
         TabLayout tabLayout = findViewById(R.id.tabLayout);

@@ -23,8 +23,10 @@
             android:layout_height="wrap_content" />
 
         <EditText
+            android:drawableStart="@drawable/ic_question_paper_name"
+            android:drawablePadding="10dp"
             android:textColorHint="@color/transparentColorPrimary"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
             android:padding="10dp"
             android:background="@drawable/bordered_background"
             android:inputType="text"
@@ -43,8 +45,10 @@
             android:layout_height="wrap_content" />
 
         <EditText
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/ic_time"
             android:textColorHint="@color/transparentColorPrimary"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
             android:padding="10dp"
             android:background="@drawable/bordered_background"
             android:inputType="number"
@@ -62,8 +66,10 @@
             android:layout_height="wrap_content" />
 
         <EditText
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/ic_name"
             android:textColorHint="@color/transparentColorPrimary"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
             android:padding="10dp"
             android:background="@drawable/bordered_background"
             android:inputType="text"
@@ -74,7 +80,7 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
             android:layout_marginTop="30dp"
             android:background="@drawable/bordered_background"
             android:id="@+id/btnCreateNewQuestionPaper"

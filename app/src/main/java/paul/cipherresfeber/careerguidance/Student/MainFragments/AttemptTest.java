@@ -39,7 +39,7 @@ public class AttemptTest extends Fragment {
         recyclerView.setAdapter(adapter);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference()
-                .child("all_question_papers").child("uid_1234").child("question_paper");
+                .child("all_question_papers");
 
         reference.addChildEventListener(new ChildEventListener() {
             @Override
@@ -56,6 +56,12 @@ public class AttemptTest extends Fragment {
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
+                QuestionPaper questionPaper = dataSnapshot.getValue(QuestionPaper.class);
+
+                if(questionPaper.getIsCompleted().equals(Extra.YES)){
+                    questionPaperList.add(questionPaper);
+                    adapter.notifyDataSetChanged();
+                }
             }
 
             @Override

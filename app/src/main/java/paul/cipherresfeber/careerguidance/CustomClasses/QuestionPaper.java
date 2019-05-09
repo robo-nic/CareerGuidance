@@ -11,20 +11,22 @@ public class QuestionPaper {
     public String creationDate;
     public String questionsId;
     public String isCompleted;
-    public String totalNumberOfQuestions;
+    public String totalNumOfQuestions;
+    public String teacherUID;
 
     public QuestionPaper(){
         // empty constructor for firebase
     }
 
     public QuestionPaper(String questionPaperName, String timePerQuestion, String teacherName,
-                         String creationDate, String questionsId){
+                         String teacherUID, String creationDate, String questionsId){
         this.questionPaperName = questionPaperName;
         this.timePerQuestion = timePerQuestion;
         this.teacherName = teacherName;
         this.creationDate = creationDate;
         this.questionsId = questionsId;
         this.isCompleted = Extra.NO;
+        this.teacherUID = teacherUID;
     }
 
     public String getQuestionPaperName() {
@@ -52,7 +54,11 @@ public class QuestionPaper {
     }
 
     public String getTotalNumberOfQuestions(){
-        return totalNumberOfQuestions;
+        return totalNumOfQuestions;
+    }
+
+    public String getTeacherUID(){
+        return teacherUID;
     }
 
 }

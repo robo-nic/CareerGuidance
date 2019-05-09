@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,9 +38,9 @@ public class NewQuestionPaper extends Fragment {
 
         DatabaseReference refQuestionPaper = FirebaseDatabase.getInstance()
                 .getReference()
-                .child("all_question_papers")
-                .child("uid_1234") // TODO: replace with teacher uid
-                .child("question_paper");
+                .child("all_question_papers");
+
+        final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         final ArrayList<QuestionPaper> questionPaperList = new ArrayList<>();
         final QuestionPaperAdapter adapter =
@@ -51,8 +52,11 @@ public class NewQuestionPaper extends Fragment {
         refQuestionPaper.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                questionPaperList.add(dataSnapshot.getValue(QuestionPaper.class));
-                adapter.notifyDataSetChanged();
+                QuestionPaper questionPaper = dataSnapshot.getValue(QuestionPaper.class);
+                if(uid.equals(questionPaper.getTeacherUID())){
+                    questionPaperList.add(questionPaper);
+                    adapter.notifyDataSetChanged();
+                }
             }
 
             @Override
