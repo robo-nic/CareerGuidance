@@ -1,5 +1,6 @@
 package paul.cipherresfeber.careerguidance.Student;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -22,6 +23,9 @@ import paul.cipherresfeber.careerguidance.Registration.RegistrationActivity;
 import paul.cipherresfeber.careerguidance.Student.MainFragments.AttemptTest;
 import paul.cipherresfeber.careerguidance.Student.MainFragments.Dashboard;
 import paul.cipherresfeber.careerguidance.Student.MainFragments.Profile;
+
+import static paul.cipherresfeber.careerguidance.Constants.Extra.labels;
+import static paul.cipherresfeber.careerguidance.Constants.Extra.sLabels;
 
 public class StudentActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -63,6 +67,26 @@ public class StudentActivity extends AppCompatActivity implements NavigationView
         textViewUserName.setText(user.getDisplayName().split("@")[0]);
         textViewUserProfilePicture.setText(String.valueOf(user.getDisplayName().split("@")[0].charAt(0)));
 
+    }
+
+    // dashboard section code
+    public void showInfo(View v){
+        StringBuilder message = new StringBuilder("");
+        for(int i=0; i<labels.length; i++){
+
+            message.append(sLabels[i])
+                    .append(" --- ")
+                    .append(labels[i])
+                    .append("\n");
+
+        }
+
+        new AlertDialog.Builder(this)
+                .setTitle("Topics Info")
+                .setIcon(R.drawable.ic_info_black)
+                .setMessage(message.toString().trim())
+                .setPositiveButton("OK", null)
+                .show();
     }
 
     @Override

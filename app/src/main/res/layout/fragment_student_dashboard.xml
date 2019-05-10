@@ -17,9 +17,6 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/txvShowList"
-            android:drawablePadding="10dp"
-            android:drawableEnd="@drawable/ic_info"
             android:textColor="@color/transparentColorPrimary"
             android:text="Preferred Career Choise"
             android:layout_width="wrap_content"
@@ -45,10 +42,13 @@
         </android.support.v7.widget.CardView>
 
         <TextView
+            android:onClick="showInfo"
+            android:drawablePadding="10dp"
+            android:drawableEnd="@drawable/ic_info"
             android:textColor="@color/transparentColorPrimary"
             android:layout_marginTop="30dp"
             android:text="Radar distribution of Marks"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <com.github.mikephil.charting.charts.RadarChart
@@ -58,10 +58,13 @@
             android:layout_height="500dp"/>
 
         <TextView
+            android:onClick="showInfo"
+            android:drawablePadding="10dp"
+            android:drawableEnd="@drawable/ic_info"
             android:textColor="@color/transparentColorPrimary"
             android:layout_marginTop="30dp"
             android:text="Bar distribution of Marks"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <com.github.mikephil.charting.charts.BarChart

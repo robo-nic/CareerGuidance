@@ -1,5 +1,6 @@
 package paul.cipherresfeber.careerguidance.Student.MainFragments;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -52,7 +53,6 @@ public class Dashboard extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_student_dashboard, container, false);
 
-        TextView textViewShowList = view.findViewById(R.id.txvShowList);
         final TextView textViewPreferredCareerChoice = view.findViewById(R.id.txvPreferredCareerChoice);
         final ArrayList<StudentAnswer> answers = new ArrayList<>();
 
@@ -117,10 +117,6 @@ public class Dashboard extends Fragment {
                pd.cancel();
            }
        }.start();
-
-
-
-
 
         return view;
     }

@@ -417,19 +417,50 @@ public class AttemptQuestionPaper extends Fragment {
             public void onFinish() {
                 // show alert dialog box informing that text has finished
 
-                String message = "For analysis of this test, view the 'Dashboard'.";
+                final ProgressDialog pd = new ProgressDialog(getContext());
+                pd.setTitle("Time's Up, Please Wait");
+                pd.setMessage("Submitting Answer Sheet");
+                pd.setCanceledOnTouchOutside(false);
+                pd.setCancelable(false);
+                pd.show();
 
-                new AlertDialog.Builder(getContext())
-                        .setCancelable(false)
-                        .setTitle("Congrats! Test Completed")
-                        .setMessage(message)
-                        .setIcon(R.drawable.ic_correct)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                // close the fragment
-                                getFragmentManager().popBackStackImmediate();
-                            }})
-                        .show();
+                // upload the entire answer sheet to the database
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference()
+                        .child("answer_sheet")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .child("first_test");
+
+                ref.setValue(answers)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                pd.cancel();
+
+                                String message = "For analysis of this test, view the 'Dashboard'.";
+
+                                new AlertDialog.Builder(getContext())
+                                        .setCancelable(false)
+                                        .setTitle("Congrats! Test Completed")
+                                        .setMessage(message)
+                                        .setIcon(R.drawable.ic_correct)
+                                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int whichButton) {
+                                                // close the fragment
+                                                getFragmentManager().popBackStackImmediate();
+                                            }})
+                                        .show();
+
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                pd.cancel();
+                                Toast.makeText(getContext(),
+                                        "Something went wrong!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
             }
         }.start();
 
