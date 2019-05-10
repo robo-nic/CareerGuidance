@@ -52,11 +52,23 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Questi
 
         if(correctOption.equals(Extra.OPTION_1)){
             v.option1.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_correct, 0);
+            v.option2.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_wrong, 0);
+            v.option3.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_wrong, 0);
+            v.option4.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_wrong, 0);
         } else if(correctOption.equals(Extra.OPTION_2)){
+            v.option1.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_wrong, 0);
             v.option2.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_correct, 0);
+            v.option3.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_wrong, 0);
+            v.option4.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_wrong, 0);
         } else if(correctOption.equals(Extra.OPTION_3)){
+            v.option1.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_wrong, 0);
+            v.option2.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_wrong, 0);
             v.option3.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_correct, 0);
+            v.option4.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_wrong, 0);
         } else{
+            v.option1.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_wrong, 0);
+            v.option2.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_wrong, 0);
+            v.option3.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_wrong, 0);
             v.option4.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_correct, 0);
         }
 

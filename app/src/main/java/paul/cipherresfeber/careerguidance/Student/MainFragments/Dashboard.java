@@ -38,8 +38,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Random;
 
+import paul.cipherresfeber.careerguidance.Constants.Extra;
 import paul.cipherresfeber.careerguidance.CustomClasses.StudentAnswer;
 import paul.cipherresfeber.careerguidance.R;
+
+import static paul.cipherresfeber.careerguidance.Constants.Extra.labels;
+import static paul.cipherresfeber.careerguidance.Constants.Extra.sLabels;
 
 public class Dashboard extends Fragment {
 
@@ -48,6 +52,7 @@ public class Dashboard extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_student_dashboard, container, false);
 
+        TextView textViewShowList = view.findViewById(R.id.txvShowList);
         final TextView textViewPreferredCareerChoice = view.findViewById(R.id.txvPreferredCareerChoice);
         final ArrayList<StudentAnswer> answers = new ArrayList<>();
 
@@ -115,9 +120,12 @@ public class Dashboard extends Fragment {
 
 
 
+
+
         return view;
     }
 
+    // utility method for plotting the graphs
     private void showGraphs(View view, ArrayList<StudentAnswer> answers, TextView textViewPreferredCareerChoice){
         final RadarChart radarChart = view.findViewById(R.id.radarChart);
         final BarChart lineChart  = view.findViewById(R.id.barChart);
@@ -127,47 +135,9 @@ public class Dashboard extends Fragment {
             return;
         }
 
-        // else plot graphs
-        String labels[] = {
-                "ACCOUNTING",
-                "ARCHITECTURE",
-                "BIOLOGY",
-                "BUSINESS",
-                "CIVIL",
-                "COMPUTER SCIENCE",
-                "CRIMINOLOGY",
-                "ELECTRICAL",
-                "FASHION",
-                "GEOGRAPHY",
-                "GENERAL KNOWLEDGE",
-                "GRAPHIC DESIGN",
-                "LAW",
-                "MATHEMATICS",
-                "MUSIC",
-                "PHYSICS"
-        };
 
-        String sLabels[] = {
-                "Acc.",
-                "Arc.",
-                "Bio.",
-                "Buss.",
-                "Civ.",
-                "Cse",
-                "Crime.",
-                "Ele.",
-                "Fas.",
-                "Geo.",
-                "Gk.",
-                "Graph.",
-                "Law",
-                "Maths.",
-                "Mus.",
-                "Phy."
-        };
-
-        ArrayList<RadarEntry> list = getDataPoints(answers, labels);
-
+        // plotting the radar chart
+        ArrayList<RadarEntry> list = getDataPoints(answers);
         RadarDataSet dataSet1 = new RadarDataSet(list, "Marks Distribution");
         dataSet1.setColor(Color.RED);
         dataSet1.setLineWidth(0f);
@@ -175,7 +145,6 @@ public class Dashboard extends Fragment {
         dataSet1.setFillColor(Color.argb(50,255,0,0));
         RadarData radarData = new RadarData();
         radarData.addDataSet(dataSet1);
-
         XAxis xAxis = radarChart.getXAxis();
         xAxis.setValueFormatter(new IndexAxisValueFormatter(sLabels));
         Description description = new Description();
@@ -185,22 +154,12 @@ public class Dashboard extends Fragment {
         radarChart.animateY(500);
         radarChart.invalidate();
 
-        // finding the subject with max value
-        int maxVal = Integer.MIN_VALUE;
-        int index = 0;
-        for(int i=0; i<list.size(); i++){
-            if(maxVal < list.get(i).getValue()){
-                maxVal = (int) list.get(i).getValue();
-                index = i;
-            }
-        }
 
+        // plotting the bar chart
         ArrayList<BarEntry> barEntries = new ArrayList<>();
         for(int i=0; i<list.size(); i++){
             barEntries.add(new BarEntry(i,list.get(i).getValue()));
         }
-
-        // finally plotting the bar graph
         // customizing the graph
         Description d = new Description();
         description.setText("");
@@ -209,28 +168,47 @@ public class Dashboard extends Fragment {
         lineChart.getXAxis().setDrawGridLines(false);
         lineChart.setPinchZoom(true);
         lineChart.setScaleMinima(2,1);
-
-
         lineChart.setDrawGridBackground(false);
         lineChart.setDrawBorders(true);
         lineChart.setBorderWidth(2);
-
         // data points
         BarDataSet lineDataSet = new BarDataSet(barEntries, "Marks Distribution");
-
         // customizing the line
         lineDataSet.setColor(Color.argb(100,255,0,0));
         lineDataSet.setValueTextSize(0);
-
         lineChart.setData(new BarData(lineDataSet));
         lineChart.animateY(500);
         lineChart.invalidate();
 
+        // finding the subject with max value
+        int maxVal = Integer.MIN_VALUE;
+        for(int i=0; i<list.size(); i++){
+            if(maxVal < list.get(i).getValue()){
+                maxVal = (int) list.get(i).getValue();
+            }
+        }
 
-        textViewPreferredCareerChoice.setText(labels[index]);
+        if(maxVal == 0){
+            // then the student is good for nothing
+            textViewPreferredCareerChoice.setText("GOOD FOR NOTHING");
+        } else{
+            // otherwise show all the topics the student is good at
+            StringBuilder subjects = new StringBuilder("");
+
+            for(int i=0; i<list.size(); i++){
+                if(maxVal == list.get(i).getValue()){
+                    subjects.append(labels[i]).append("\n");
+                }
+            }
+
+            // finally display all the topics
+            textViewPreferredCareerChoice.setText(subjects.toString().trim());
+        }
+
     }
 
-    private ArrayList<RadarEntry> getDataPoints(ArrayList<StudentAnswer> answers, String[] labels){
+    // utility method for preparing the marks data to be plotted as graph
+    private ArrayList<RadarEntry> getDataPoints(ArrayList<StudentAnswer> answers){
 
 
         int[] marks = new int[labels.length];

@@ -17,9 +17,12 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/txvShowList"
+            android:drawablePadding="10dp"
+            android:drawableEnd="@drawable/ic_info"
             android:textColor="@color/transparentColorPrimary"
             android:text="Preferred Career Choise"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <android.support.v7.widget.CardView
@@ -29,7 +32,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/txvPreferredCareerChoice"
                 android:textSize="27sp"
@@ -44,7 +47,7 @@
         <TextView
             android:textColor="@color/transparentColorPrimary"
             android:layout_marginTop="30dp"
-            android:text="Graphical distribution of Marks"
+            android:text="Radar distribution of Marks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -57,7 +60,7 @@
         <TextView
             android:textColor="@color/transparentColorPrimary"
             android:layout_marginTop="30dp"
-            android:text="Tabular distribution of Marks"
+            android:text="Bar distribution of Marks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

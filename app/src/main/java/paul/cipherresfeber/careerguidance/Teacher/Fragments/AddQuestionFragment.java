@@ -134,8 +134,8 @@ public class AddQuestionFragment extends Fragment {
                 String correctOption = spinnerCorrectOption.getSelectedItem().toString();
 
                 // verifying entered details
-                if(questionTitle.length() < 5 || questionTitle.length() > 50){
-                    editTextQuestionTitle.setError("5 - 30 chars only");
+                if(questionTitle.length() < 5){
+                    editTextQuestionTitle.setError("At least 5 chars");
                     editTextQuestionTitle.requestFocus();
                     return;
                 }
